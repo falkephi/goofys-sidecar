@@ -1,8 +1,28 @@
+goofys-sidecar
+==============
+
 Sidecar container to mount an s3 bucket and share it with another container in
 the same pod.
 
 This code is heavily based on the s3fs-sidecar by signaleleven: https://github.com/signaleleven/s3fs-sidecar
 
+Try it out
+----------
+
+
+```
+docker run -e AWS_ACCESS_KEY_ID='MYACCESSKEYIDXXXXX' \
+    -e AWS_SECRET_ACCESS_KEY='secretAccessKeyNotRevealedToAnyone' \
+    -e BUCKET='bucketName' \
+    -e MOUNTPOINT=/data \
+    --privileged
+    meierphi/goofys-sidecar:latest
+```
+
+Stop with `Ctrl+C`.
+
+Deploy on k8s
+-------------
 
 Create secret with:
 
